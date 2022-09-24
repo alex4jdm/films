@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import db from './models/index.js';
 
 const app = express();
 app.use(bodyParser.json()); 
