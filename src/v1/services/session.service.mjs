@@ -3,13 +3,11 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 export class SessionService {
-  constructor() {
-    this.userService = new UserService();
-  }
+  constructor() { }
 
   async signIn(signInData) {
     const { email, password } = signInData;
-    const user = await this.userService.findByEmail(email);
+    const user = await UserService.findByEmail(email);
     if (!user) throw new Error('Wrong email or password!');
     const isEqual = await bcrypt.compare(password, user.password);
     if (isEqual) {
