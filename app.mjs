@@ -2,7 +2,6 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import db from './models/index.js';
 import routerV1 from './src/v1/routes/routes.mjs';
 
 dotenv.config();
