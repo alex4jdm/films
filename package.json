@@ -4,7 +4,7 @@
   "description": "Rest api for films app.",
   "main": "app.js",
   "scripts": {
-    "start:dev": "node app.js"
+    "start:dev": "node app.mjs"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/alex4jdm/films/issues"
   },
-  "homepage": "https://github.com/alex4jdm/films#readme"
+  "homepage": "https://github.com/alex4jdm/films#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
