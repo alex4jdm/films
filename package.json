@@ -4,7 +4,9 @@
   "description": "Rest api for films app.",
   "main": "app.js",
   "scripts": {
-    "start:dev": "node app.mjs"
+    "start:dev": "node app.mjs",
+    "sequelize": "sequelize --config=./src/v1/config/config.json",
+    "migrate": "sequelize --config=./src/v1/config/config.json db:migrate"
   },
   "repository": {
     "type": "git",

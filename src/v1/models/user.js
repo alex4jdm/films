@@ -18,6 +18,14 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     password: DataTypes.STRING
   }, {
+    defaultScope: {
+      attributes: { exclude: ['password', 'createdAt', 'updatedAt'] }
+    },
+    scopes: {
+      withPassword: {
+        attributes: { exclude: ['createdAt', 'updatedAt'] }
+      }
+    },
     sequelize,
     modelName: 'User',
   });
