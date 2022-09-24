@@ -1,4 +1,4 @@
-import { UserService } from '../services/user.service.mjs';
+import { UserService } from '../services/index.mjs';
 
 export class UserController {
   constructor() {

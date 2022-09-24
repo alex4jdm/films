@@ -13,4 +13,12 @@ export class UserService {
     const user = await this.userModel.create({ email, name, password: hash });
     return this.userModel.findByPk(user.id);
   }
+
+  async findByEmail(email) {
+    return this.userModel.scope('withPassword').findOne({
+      where: {
+        email
+      }
+    });
+  }
 }
