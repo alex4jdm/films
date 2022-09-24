@@ -1,0 +1,22 @@
+{
+  "name": "films",
+  "version": "1.0.0",
+  "description": "Rest api for films app.",
+  "main": "app.js",
+  "scripts": {
+    "start:dev": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alex4jdm/films.git"
+  },
+  "keywords": [
+    "films"
+  ],
+  "author": "alex4jdm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alex4jdm/films/issues"
+  },
+  "homepage": "https://github.com/alex4jdm/films#readme"
+}
