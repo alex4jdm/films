@@ -12,8 +12,10 @@ export class UserService {
     const { email, name, password, confirmPassword } = userData;
     if (password !== confirmPassword) throw new Error('Wrong confirmation password!');
     const hash = await bcrypt.hash(password, 10);
-    await this.userModel.create({ email, name, password: hash });
-    return this.sessionService.signIn(email, password);
+    const user = await this.userModel.create({ email, name, password: hash });
+    return this.sessionService.generateToken(
+      (await this.userModel.findByPk(user.id)).dataValues
+    );
   }
 
   static async findByEmail(email) {
