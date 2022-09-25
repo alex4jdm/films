@@ -30,7 +30,10 @@ export class MovieService {
       movieId: movie.dataValues.id
     }));
 
-    return this.movieModel.findAll({
+    return this.movieModel.findOne({
+      where: {
+        id: movie.dataValues.id
+      },
       include: {
         model: this.actorModel, as: 'actors'
       }
