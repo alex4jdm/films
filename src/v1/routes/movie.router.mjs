@@ -5,5 +5,7 @@ const movieController = new MovieController();
 const router = Router();
 
 router.post('/', movieController.createMovie.bind(movieController));
+router.delete('/:id', movieController.deleteMovie.bind(movieController));
+router.patch('/:id', movieController.updateMovie.bind(movieController));
 
 export default router;
