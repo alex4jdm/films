@@ -73,7 +73,15 @@ export class MovieService {
     const { rawActors } = movieData;
     const actors = await this.createAndGetExistedActors(rawActors);
     await this.applyActors(actors, movie.dataValues.id);
+    await movie.update(movieData);
 
-    return movie.update(movieData);
+    return this.movieModel.findOne({
+      where: {
+        id
+      },
+      include: {
+        model: this.actorModel, as: 'actors'
+      }
+    });
   }
 }
