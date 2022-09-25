@@ -28,4 +28,10 @@ export class MovieController {
       .then(movie => res.send({ data: movie }))
       .catch(err => res.status(400).send(err.message));
   }
+
+  getMany(req, res) {
+    this.movieService.getMany(req.query)
+      .then(movies => res.send({ data: movies }))
+      .catch(err => res.status(400).send(err.message));
+  }
 }

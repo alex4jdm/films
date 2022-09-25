@@ -1,4 +1,5 @@
 import db from '../models/index.js';
+import { Op } from 'sequelize';
 
 export class MovieService {
   constructor() {
@@ -94,5 +95,46 @@ export class MovieService {
         model: this.actorModel, as: 'actors'
       }
     });
+  }
+
+  async getMany(query) {
+    const qb = {
+      order: [[query.sort || 'id', query.order || 'ASC']],
+      limit: query.limit || 20,
+      offset: query.offset || 0
+    };
+
+    if (query.title) {
+      qb.where = {
+        title: {
+          [Op.like]: `%${query.title}%`
+        } 
+      }
+    }
+    if (query.actor) {
+      qb.include = {
+        model: this.actorModel, as: 'actors',
+        where: {
+          name: {
+            [Op.like]: `%${query.actor}%`
+          }
+        }
+      }
+    } else if (query.search) {
+      qb.include = {
+        model: this.actorModel, as: 'actors',
+        where: {
+          name: {
+            [Op.like]: `%${query.search}%`
+          }
+        }
+      }
+    } else {
+      qb.include = {
+        model: this.actorModel, as: 'actors'
+      }
+    }
+
+    return this.movieModel.findAll(qb);
   }
 }
