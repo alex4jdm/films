@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start:dev": "node app.mjs",
-    "sequelize": "sequelize --config=./src/v1/config/config.json",
-    "migrate": "sequelize --config=./src/v1/config/config.json db:migrate"
+    "sequelize": "sequelize --config=./src/v1/config/config.json --models-path=./src/v1/models",
+    "migrate": "npm run sequelize db:migrate"
   },
   "repository": {
     "type": "git",
