@@ -48,7 +48,7 @@ export class MovieService {
   }
 
   async deleteMovie(id) {
-    const movie = await this.movieModel.findById(parseInt(id));
+    const movie = await this.movieModel.findByPk(parseInt(id));
     await movie.destroy();
     return 1;
   }
@@ -70,9 +70,9 @@ export class MovieService {
       }
     });
 
-    const { rawActors } = movieData;
-    const actors = await this.createAndGetExistedActors(rawActors);
-    await this.applyActors(actors, movie.dataValues.id);
+    const { actors } = movieData;
+    const updatedActors = await this.createAndGetExistedActors(actors);
+    await this.applyActors(updatedActors, movie.dataValues.id);
     await movie.update(movieData);
 
     return this.movieModel.findOne({
