@@ -10,5 +10,5 @@ RUN npm i
 COPY . $APP_WORKDIR
 
 EXPOSE 8000
-CMD npm run migrate
+
 CMD npm run start:dev

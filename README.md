@@ -1,15 +1,25 @@
-## Running Docker:
+## Running Docker and database:
 
 ### Building
 
+Used node version 16
+
 ```
-docker build . -t <your username>/films
+npm install
+```
+
+```
+npm run migrate
+```
+
+```
+sudo docker build . -t <your username>/films
 ```
 
 ### Running
 
 ```
-docker run -p 8050:8000 -e APP_PORT=8050 <your username>/films
+sudo docker run -p 8050:8000 -e APP_PORT=8050 <your username>/films
 ```
 
 ### Kill container
@@ -24,11 +34,11 @@ sudo docker kill <container id>
 
 Now, you should send requests on http://127.0.0.1:8050
 
-### Auth:
+### Auth
 
   Use bearer token for /api/v1/movies routes.
 
-## Files structure
+## Files structure:
 
 .env - configuration for express app
 
