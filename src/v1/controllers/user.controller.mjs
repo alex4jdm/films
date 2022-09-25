@@ -5,9 +5,9 @@ export class UserController {
     this.userService = new UserService();
   }
 
-  async createUser(req, res) {
+  createUser(req, res) {
     this.userService.createUser(req.body)
-    .then(user => res.send(user))
-    .catch(err => res.status(400).send(err.message));
+      .then(user => res.send(user))
+      .catch(err => res.status(400).send(err.message));
   }
 }
