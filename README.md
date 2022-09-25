@@ -10,6 +10,12 @@ Running
 docker run -p 8050:8000 -e APP_PORT=8050 <your username>/films
 ``
 
+Kill container
+``
+sudo docker ps
+sudo docker kill <container id>
+``
+
 Now, you should send requests on http://127.0.0.1:8050
 
 Auth:
