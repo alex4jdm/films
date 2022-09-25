@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import morgan from 'morgan';
 import routerV1 from './src/v1/routes/routes.mjs';
 
 dotenv.config();
@@ -16,6 +17,7 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({
   extended: true
 }));
+app.use(morgan('common'));
 
 app.use('/api/v1', routerV1);
 
