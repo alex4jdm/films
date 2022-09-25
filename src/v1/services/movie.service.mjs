@@ -84,4 +84,15 @@ export class MovieService {
       }
     });
   }
+
+  async getSingle(rawId) {
+    return this.movieModel.findOne({
+      where: {
+        id: parseInt(rawId)
+      },
+      include: {
+        model: this.actorModel, as: 'actors'
+      }
+    });
+  }
 }

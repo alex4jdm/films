@@ -19,7 +19,13 @@ export class MovieController {
 
   updateMovie(req, res) {
     this.movieService.updateMovie(req.params.id, req.body)
-    .then(movie => res.send({ data: movie }))
-    .catch(err => res.status(400).send(err.message));
+      .then(movie => res.send({ data: movie }))
+      .catch(err => res.status(400).send(err.message));
+  }
+
+  getSingle(req, res) {
+    this.movieService.getSingle(req.params.id)
+      .then(movie => res.send({ data: movie }))
+      .catch(err => res.status(400).send(err.message));
   }
 }
