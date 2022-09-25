@@ -34,4 +34,10 @@ export class MovieController {
       .then(movies => res.send({ data: movies }))
       .catch(err => res.status(400).send(err.message));
   }
+
+  importMovies(req, res) {
+    this.movieService.importMovies(req.file)
+    .then(movies => res.send({ data: movies }))
+    .catch(err => res.status(400).send(err.message));
+  }
 }

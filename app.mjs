@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import morgan from 'morgan';
 import routerV1 from './src/v1/routes/routes.mjs';
-
+import multer from 'multer';
 dotenv.config();
 
 const app = express();
@@ -18,6 +18,10 @@ app.use(express.urlencoded({
   extended: true
 }));
 app.use(morgan('common'));
+
+const upload = multer();
+app.use(upload.single('movies')); 
+app.use(express.static('public'));
 
 app.use('/api/v1', routerV1);
 

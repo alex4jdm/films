@@ -137,4 +137,19 @@ export class MovieService {
 
     return this.movieModel.findAll(qb);
   }
+
+  async importMovies(file) {
+    const data = file.buffer.toString();
+    const parsedStrings = data.split('\n').filter(str => str.length > 1);
+    const movies = [];
+    for (let i = 0; i < parsedStrings.length;) {
+      let movie = { };
+      movie.title = parsedStrings[i++].replace('Title: ', '');
+      movie.year = parsedStrings[i++].replace('Release Year: ', '');
+      movie.format = parsedStrings[i++].replace('Format: ', '');
+      movie.actors = parsedStrings[i++].replace('Stars: ', '').split(', ');
+      movies.push(movie);
+    }
+    return Promise.all(movies.map(movie => this.createMovie(movie)));
+  }
 }

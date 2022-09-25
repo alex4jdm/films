@@ -9,5 +9,6 @@ router.delete('/:id', movieController.deleteMovie.bind(movieController));
 router.patch('/:id', movieController.updateMovie.bind(movieController));
 router.get('/:id', movieController.getSingle.bind(movieController));
 router.get('/', movieController.getMany.bind(movieController));
+router.post('/import', movieController.importMovies.bind(movieController));
 
 export default router;
