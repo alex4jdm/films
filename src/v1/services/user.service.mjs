@@ -17,12 +17,4 @@ export class UserService {
       (await this.userModel.findByPk(user.id)).dataValues
     );
   }
-
-  static async findByEmail(email) {
-    return db.User.scope('withPassword').findOne({
-      where: {
-        email
-      }
-    });
-  }
 }
