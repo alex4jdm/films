@@ -1,18 +1,18 @@
-##Running Docker:
+## Running Docker:
 
-###Building
+### Building
 
 ```
 docker build . -t <your username>/films
 ```
 
-###Running
+### Running
 
 ```
 docker run -p 8050:8000 -e APP_PORT=8050 <your username>/films
 ```
 
-###Kill container
+### Kill container
 
 ```
 sudo docker ps
@@ -24,11 +24,11 @@ sudo docker kill <container id>
 
 Now, you should send requests on http://127.0.0.1:8050
 
-###Auth:
+### Auth:
 
   Use bearer token for /api/v1/movies routes.
 
-##Files structure
+## Files structure
 
 .env - configuration for express app
 
